@@ -2,7 +2,8 @@
 
 namespace app\controllers;
 
-use app\queries\IbanQuery;
+use app\mutations\ValidateIbanMutation;
+use app\queries\ValidateIbanQuery;
 use mgcode\graphql\GraphQLAction;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -48,8 +49,9 @@ class GraphqlController extends Controller
             'index' => [
                 'class' => GraphQLAction::class,
                 'queries' => [
-                    'iban' => IbanQuery::class
-                ]
+                    'validateIban' => ValidateIbanQuery::class
+                ],
+                'mutations' => []
             ],
             'options' => [
                 'class' => 'yii\rest\OptionsAction',
