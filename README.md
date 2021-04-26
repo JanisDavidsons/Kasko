@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="kasko.io" target="_blank">
+    <a href="www.kasko.io" target="_blank">
         <img src="./web/images/kasko.png" height="100px">
     </a>
     <h1 align="center">Kasko IBAN validation task</h1>

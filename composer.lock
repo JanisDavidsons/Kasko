@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9cd87f007dcd9d8cf647fb718b0384f8",
+    "content-hash": "b4748126af667fd43c766995bdb2c1de",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -367,6 +367,95 @@
                 "source": "https://github.com/ezyang/htmlpurifier/tree/master"
             },
             "time": "2020-06-29T00:56:53+00:00"
+        },
+        {
+            "name": "mg-code/yii2-graphql",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:mg-code/yii2-graphql.git",
+                "reference": "581ea94d680edb4cfe255b84e8ba54bad11ce9d2"
+            },
+            "require": {
+                "php": ">=7.2.0",
+                "webonyx/graphql-php": "0.13.*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "mgcode\\graphql\\": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Maris Graudins",
+                    "role": "Developer"
+                }
+            ],
+            "description": "GraphQL support",
+            "homepage": "https://github.com/mg-code/yii2-graphql",
+            "keywords": [
+                "extension",
+                "graphql",
+                "yii",
+                "yii2"
+            ],
+            "time": "2021-04-14T09:11:45+00:00"
+        },
+        {
+            "name": "mg-code/yii2-helpers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mg-code/yii2-helpers.git",
+                "reference": "bcb7d202a960384a85f065e333a7ba64b13c3126"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mg-code/yii2-helpers/zipball/bcb7d202a960384a85f065e333a7ba64b13c3126",
+                "reference": "bcb7d202a960384a85f065e333a7ba64b13c3126",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "mgcode\\helpers\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Maris Graudins",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A collection of useful helper classes for Yii framework 2.0",
+            "homepage": "https://github.com/mg-code/yii2-helpers",
+            "keywords": [
+                "array",
+                "database",
+                "db",
+                "extension",
+                "helper",
+                "math",
+                "request",
+                "string",
+                "time",
+                "url",
+                "yii",
+                "yii2"
+            ],
+            "time": "2018-11-26T15:03:40+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -849,6 +938,68 @@
                 }
             ],
             "time": "2021-01-07T16:49:33+00:00"
+        },
+        {
+            "name": "webonyx/graphql-php",
+            "version": "v0.13.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webonyx/graphql-php.git",
+                "reference": "d9a94fddcad0a35d4bced212b8a44ad1bc59bdf3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/d9a94fddcad0a35d4bced212b8a44ad1bc59bdf3",
+                "reference": "d9a94fddcad0a35d4bced212b8a44ad1bc59bdf3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": "^7.1||^8.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^6.0",
+                "phpbench/phpbench": "^0.14.0",
+                "phpstan/phpstan": "^0.11.4",
+                "phpstan/phpstan-phpunit": "^0.11.0",
+                "phpstan/phpstan-strict-rules": "^0.11.0",
+                "phpunit/phpcov": "^5.0",
+                "phpunit/phpunit": "^7.2",
+                "psr/http-message": "^1.0",
+                "react/promise": "2.*"
+            },
+            "suggest": {
+                "psr/http-message": "To use standard GraphQL server",
+                "react/promise": "To leverage async resolving on React PHP platform"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GraphQL\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A PHP port of GraphQL reference implementation",
+            "homepage": "https://github.com/webonyx/graphql-php",
+            "keywords": [
+                "api",
+                "graphql"
+            ],
+            "support": {
+                "issues": "https://github.com/webonyx/graphql-php/issues",
+                "source": "https://github.com/webonyx/graphql-php/tree/0.13.x"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/webonyx-graphql-php",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2020-07-02T05:49:25+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -5295,7 +5446,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "mg-code/yii2-helpers": 20,
+        "mg-code/yii2-graphql": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
