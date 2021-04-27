@@ -16,15 +16,15 @@ class IbanType extends GraphQLType
     public function fields(): array
     {
         return [
-            'checksum' => Type::int(),
+            'iban' => Type::string(),
             'bbanBankIdentifier' => Type::int(),
             'bban' => Type::string()
         ];
     }
 
-    public function resolveChecksum(IbanValidator $validator): int
+    public function resolveIban(IbanValidator $validator): string
     {
-        return (int)$validator->ibanModel->checksum();
+        return $validator->ibanModel->getNormalizedIban();
     }
 
     public function resolveBbanBankIdentifier(IbanValidator $validator): int
