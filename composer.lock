@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "31eced59e06555335e8a43bb8e41a0e3",
+    "content-hash": "29e04dda76c0286ce7c7c58ac0883716",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -440,6 +440,7 @@
                 "webonyx/graphql-php": "0.13.*",
                 "yiisoft/yii2": "*"
             },
+            "default-branch": true,
             "type": "yii2-extension",
             "autoload": {
                 "psr-4": {
@@ -482,6 +483,7 @@
             "require": {
                 "yiisoft/yii2": "*"
             },
+            "default-branch": true,
             "type": "yii2-extension",
             "autoload": {
                 "psr-4": {
@@ -514,7 +516,58 @@
                 "yii",
                 "yii2"
             ],
+            "support": {
+                "issues": "https://github.com/mg-code/yii2-helpers/issues",
+                "source": "https://github.com/mg-code/yii2-helpers/tree/master"
+            },
             "time": "2018-11-26T15:03:40+00:00"
+        },
+        {
+            "name": "mg-code/yii2-validators",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mg-code/yii2-validators.git",
+                "reference": "5f4609d90bb4f3b3c89632ce85cc3963373c2930"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mg-code/yii2-validators/zipball/5f4609d90bb4f3b3c89632ce85cc3963373c2930",
+                "reference": "5f4609d90bb4f3b3c89632ce85cc3963373c2930",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "default-branch": true,
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "mgcode\\validators\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Maris Graudins",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Useful collection of validators",
+            "homepage": "https://github.com/mg-code/yii2-validators",
+            "keywords": [
+                "extension",
+                "validators",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/mg-code/yii2-validators/issues",
+                "source": "https://github.com/mg-code/yii2-validators/tree/master"
+            },
+            "time": "2021-04-19T12:51:33+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1778,6 +1831,63 @@
                 }
             ],
             "time": "2020-06-24T00:04:01+00:00"
+        },
+        {
+            "name": "yiisoft/yii2-httpclient",
+            "version": "2.0.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-httpclient.git",
+                "reference": "a66a2de6d7dd6d068da3f85a12589fedd0d76855"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-httpclient/zipball/a66a2de6d7dd6d068da3f85a12589fedd0d76855",
+                "reference": "a66a2de6d7dd6d068da3f85a12589fedd0d76855",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2.0.13"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.8.27|~5.7.21|^6.2"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\httpclient\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Klimov",
+                    "email": "klimov.paul@gmail.com"
+                }
+            ],
+            "description": "HTTP client extension for the Yii framework",
+            "keywords": [
+                "curl",
+                "http",
+                "httpclient",
+                "yii2"
+            ],
+            "support": {
+                "forum": "http://www.yiiframework.com/forum/",
+                "irc": "irc://irc.freenode.net/yii",
+                "issues": "https://github.com/yiisoft/yii2-httpclient/issues",
+                "source": "https://github.com/yiisoft/yii2-httpclient",
+                "wiki": "http://www.yiiframework.com/wiki/"
+            },
+            "time": "2019-10-08T09:48:39+00:00"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -5576,7 +5686,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "mg-code/yii2-helpers": 20,
-        "mg-code/yii2-graphql": 20
+        "mg-code/yii2-graphql": 20,
+        "mg-code/yii2-validators": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
@@ -5584,5 +5695,5 @@
         "php": ">=5.6.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

@@ -2,11 +2,12 @@
 
 namespace app\queries;
 
-use app\models\IbanValidator;
-use app\types\IbanType;
 use GraphQL\Type\Definition\Type;
-use mgcode\graphql\GraphQLMutation;
 use mgcode\graphql\GraphQLQuery;
+use app\types\IbanValidatorType;
+use Iban\Validation\Validator;
+use app\models\IbanValidator;
+use Iban\Validation\Iban;
 
 class ValidateIbanQuery extends GraphQLQuery
 {
@@ -17,14 +18,24 @@ class ValidateIbanQuery extends GraphQLQuery
 
     public function type(): Type
     {
-        return Type::nonNull(IbanType::type());
+        return Type::nonNull(IbanValidatorType::type());
     }
 
-    public function resolve()
+    public function args(): array
     {
-        $model = new IbanValidator([
-            'iban' => 'BE71096123456769'
-        ]);
+        return [
+            'iban' => Type::nonNull(Type::string())
+        ];
+    }
+
+    public function resolve($root, array $args): IbanValidator
+    {
+
+        $ibanModel = new Iban($args['iban']);
+        $validator = new Validator();
+
+        $model = new IbanValidator($ibanModel, $validator);
+        $model->validateIban();
 
         return $model;
     }

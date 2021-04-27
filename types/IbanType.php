@@ -5,30 +5,35 @@ namespace app\types;
 use GraphQL\Type\Definition\Type;
 use mgcode\graphql\GraphQLType;
 use app\models\IbanValidator;
-use yii\bootstrap\Modal;
 
 class IbanType extends GraphQLType
 {
     public function name(): string
     {
-        return 'IbanValidatorType';
+        return 'IbanType';
     }
 
     public function fields(): array
     {
         return [
-            'iban' => Type::nonNull(Type::string()),
-            'isValid' => Type::boolean()
+            'checksum' => Type::int(),
+            'bbanBankIdentifier' => Type::int(),
+            'bban' => Type::string()
         ];
     }
 
-    public function resolveIban(IbanValidator $model): string
+    public function resolveChecksum(IbanValidator $validator): int
     {
-        return $model->iban;
+        return (int)$validator->ibanModel->checksum();
     }
 
-    public function resolveIsValid(IbanValidator $model): bool
+    public function resolveBbanBankIdentifier(IbanValidator $validator): int
     {
-        return $model->validateIban();
+        return (int)$validator->ibanModel->bbanBankIdentifier();
+    }
+
+    public function resolveBban(IbanValidator $validator)
+    {
+        return $validator->ibanModel->bban();
     }
 }
