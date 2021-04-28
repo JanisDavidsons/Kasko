@@ -1,10 +1,11 @@
 <?php
 
+use mgcode\graphql\error\ValidatorException;
+use Iban\Validation\Validator;
 use app\models\IbanValidator;
 use Codeception\Util\Stub;
-use Iban\Validation\Validator;
 use Iban\Validation\Iban;
-use mgcode\graphql\error\ValidatorException;
+use app\types\IbanType;
 
 class IbanValidatorTest extends \Codeception\Test\Unit
 {
@@ -29,7 +30,7 @@ class IbanValidatorTest extends \Codeception\Test\Unit
     public function testHaveErrorsOnIvalidIban()
     {
         /** @var Validator $validator */
-        $validator = $this->make(Validator::class, [
+        $validator = Stub::make(Validator::class, [
             'validate' => function () {
                 return false;
             },
@@ -43,7 +44,7 @@ class IbanValidatorTest extends \Codeception\Test\Unit
         ]);
 
         /** @var IbanValidator $ibanValidator */
-        $ibanValidator = $this->make(IbanValidator::class, [
+        $ibanValidator = Stub::make(IbanValidator::class, [
             'ibanModel' => $this->iban,
             'validator' => $validator,
             'countryData' => new stdClass,
@@ -67,7 +68,7 @@ class IbanValidatorTest extends \Codeception\Test\Unit
     public function testOnValidIbanSetCountryCalledOnce()
     {
         /** @var Validator $validator */
-        $validator = $this->make(Validator::class, [
+        $validator = Stub::make(Validator::class, [
             'validate' => function () {
                 return true;
             },
@@ -77,7 +78,7 @@ class IbanValidatorTest extends \Codeception\Test\Unit
         ]);
 
         /** @var IbanValidator $ibanValidator */
-        $ibanValidator = $this->make(IbanValidator::class, [
+        $ibanValidator = Stub::make(IbanValidator::class, [
             'ibanModel' => $this->iban,
             'validator' => $validator,
             'countryData' => new stdClass,
@@ -85,5 +86,29 @@ class IbanValidatorTest extends \Codeception\Test\Unit
         ]);
 
         $ibanValidator->validateIban();
+    }
+
+    public function testConvertsIbanToPrintFormat()
+    {
+        /** @var IbanValidator $ibanValidator */
+        $ibanValidator = Stub::make(IbanValidator::class, [
+            'ibanModel' => $this->iban
+        ]);
+
+        /** @var IbanType $ibanType */
+        $ibanType = Stub::make(IbanType::class);
+        $this->tester->assertSame('BE71 0961 2345 6769', $ibanType->resolveIban($ibanValidator));
+    }
+
+    public function testGetCorretBban()
+    {
+        /** @var IbanValidator $ibanValidator */
+        $ibanValidator = Stub::make(IbanValidator::class, [
+            'ibanModel' => $this->iban
+        ]);
+
+        /** @var IbanType $ibanType */
+        $ibanType = Stub::make(IbanType::class);
+        $this->tester->assertSame('096123456769', $ibanType->resolveBban($ibanValidator));
     }
 }

@@ -24,7 +24,9 @@ class IbanType extends GraphQLType
 
     public function resolveIban(IbanValidator $validator): string
     {
-        return $validator->ibanModel->getNormalizedIban();
+        $iban = $validator->ibanModel->getNormalizedIban();
+        
+        return trim(chunk_split($iban, 4, ' '));
     }
 
     public function resolveBbanBankIdentifier(IbanValidator $validator): int
