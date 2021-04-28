@@ -29,11 +29,12 @@ class IbanValidator
         if (count($errors) > 0) {
             throw ValidatorException::fromAttributes(['iban' => $errors]);
         } else {
+            // We have valid IBAN, get info about country.
             $this->setCountryData();
         }
     }
 
-    public function setCountryData()
+    public function setCountryData(): void
     {
         $url = "https://restcountries.eu/rest/v2/alpha/" . $this->ibanModel->countryCode();
 

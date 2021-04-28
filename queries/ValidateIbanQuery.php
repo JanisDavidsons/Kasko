@@ -30,7 +30,6 @@ class ValidateIbanQuery extends GraphQLQuery
 
     public function resolve($root, array $args): IbanValidator
     {
-
         $ibanModel = new Iban($args['iban']);
         $validator = new Validator();
 
