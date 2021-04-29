@@ -27,7 +27,7 @@ class IbanValidatorTest extends \Codeception\Test\Unit
         ]);
     }
 
-    public function testHaveErrorsOnIvalidIban()
+    public function testHaveValidationErrorsOnIncorectIban()
     {
         /** @var Validator $validator */
         $validator = Stub::make(Validator::class, [
@@ -65,7 +65,7 @@ class IbanValidatorTest extends \Codeception\Test\Unit
         $this->tester->assertFalse($validator->validate('someSampleIbanNumber'));
     }
 
-    public function testOnValidIbanSetCountryCalledOnce()
+    public function testSet_countryFunctionIsCalledOnceOnValidIban()
     {
         /** @var Validator $validator */
         $validator = Stub::make(Validator::class, [
@@ -100,7 +100,7 @@ class IbanValidatorTest extends \Codeception\Test\Unit
         $this->tester->assertSame('BE71 0961 2345 6769', $ibanType->resolveIban($ibanValidator));
     }
 
-    public function testGetCorretBban()
+    public function testResolve_ibanFunctionReturnsCorrectValue()
     {
         /** @var IbanValidator $ibanValidator */
         $ibanValidator = Stub::make(IbanValidator::class, [
