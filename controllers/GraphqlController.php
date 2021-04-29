@@ -2,19 +2,14 @@
 
 namespace app\controllers;
 
-use app\mutations\ValidateIbanMutation;
 use app\queries\ValidateIbanQuery;
 use mgcode\graphql\GraphQLAction;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\Response;
-use backend\schema\queries\UserQuery;
-
 
 class GraphqlController extends Controller
 {
-
-
     /** @inheritdoc */
     public $enableCsrfValidation = false;
     /** @inheritdoc */

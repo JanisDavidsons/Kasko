@@ -6,11 +6,11 @@
     <br>
 </p>
 
-Iban validator is graphql API, which is built using the Yii2 framework. You can pass the IBAN code as an input, which gets validated. If validation fails, you get a response with error details (e.g "The length of the given Iban is not valid!"). If validation success response holds IBAN details and information about the country associated with it.
+Iban validator is graphql API, which is built using the Yii2 framework. You can pass the IBAN code as an input, which is validated and get json response. If validation fails, it returns exact description about IBAN issue (e.g "The length of the given Iban is not valid!"). If validation passes response holds IBAN details and information about the country associated with it in json format (two objects).
 
 It is built using Docker, which makes it very easy to run application on any enviroument.
 
-Get Docker and docker-compose  [here](https://www.docker.com/products/container-runtime). Start the application with a single command on any os - no need for setup (Except Docker itself, of course).
+You can get Docker and docker-compose  [here](https://www.docker.com/products/container-runtime). Start the application with a few simple commands on any os - no need for setup (Except Docker itself).
 
 Recomneded tool to make graphql queries is Insomina, which can be downloaded here [Insomnia](https://insomnia.rest/).
  
@@ -23,7 +23,7 @@ Follow these steps:
             * docker-compose run --rm php composer install
             * docker-compose up -d
     4. Open insomnia and enter address http://127.0.0.1:8000/graphql
-    5. Write query as in example picture. Supply IBAN number for "iban" variable.
+    5. Write query as in example picture. Choose which data you need as response. Supply IBAN number for "iban" variable.
 
 Testing:
 
